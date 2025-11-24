@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://5rvoq56qbhkn"]
+
+[ext_resource type="Texture2D" uid="uid://b8gok4niaonxw" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://boem6x6bmfqcm" path="res://player.gd" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
+size = Vector2(800, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(895, 48)
+
+[node name="Main" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+constant_linear_velocity = Vector2(800, 45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(60, -21)
+shape = SubResource("RectangleShape2D_7dm0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(42, -27)
+scale = Vector2(-6.2732754, -0.44385678)
+texture = ExtResource("1_ig7tw")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(21, -30)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-199, -142)
+texture = ExtResource("1_ig7tw")
+offset = Vector2(0.2, 0.3)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
