@@ -6,12 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
 size = Vector2(800, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(895, 48)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Ground" type="StaticBody2D" parent="."]
+collision_layer = 2
 constant_linear_velocity = Vector2(800, 45)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
@@ -24,11 +24,13 @@ scale = Vector2(-6.2732754, -0.44385678)
 texture = ExtResource("1_ig7tw")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+collision_mask = 2
+up_direction = Vector2(0.99999976, -0.00066666654)
 script = ExtResource("2_0xm2m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(21, -30)
-shape = SubResource("RectangleShape2D_0xm2m")
+shape = SubResource("CapsuleShape2D_0xm2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(-199, -142)
