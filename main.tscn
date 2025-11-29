@@ -1,40 +1,61 @@
-[gd_scene load_steps=5 format=3 uid="uid://5rvoq56qbhkn"]
+[gd_scene load_steps=6 format=3 uid="uid://5rvoq56qbhkn"]
 
-[ext_resource type="Texture2D" uid="uid://b8gok4niaonxw" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dys32skjp185b" path="res://—Pngtree—cartoon style ground texture seamless_15284635.jpg" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://boem6x6bmfqcm" path="res://player.gd" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://5wxak4muynqm" path="res://pixil-frame-0 (1).png" id="2_h2yge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
-size = Vector2(800, 40)
+size = Vector2(1042, 40)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
+radius = 24.0
+height = 118.0
 
 [node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49109.0
+offset_top = -27020.0
+offset_right = 36507.0
+offset_bottom = 22404.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5372549, 0.42745098, 0.3647059, 0.3019608)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 collision_layer = 2
 constant_linear_velocity = Vector2(800, 45)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(60, -21)
+position = Vector2(5, -21)
 shape = SubResource("RectangleShape2D_7dm0k")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
-position = Vector2(42, -27)
-scale = Vector2(-6.2732754, -0.44385678)
-texture = ExtResource("1_ig7tw")
+position = Vector2(12.56234, -39)
+scale = Vector2(-0.18153092, -0.022244444)
+texture = ExtResource("1_h2yge")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 collision_mask = 2
-up_direction = Vector2(0.99999976, -0.00066666654)
+up_direction = Vector2(0.9999998, -0.0006666666)
 script = ExtResource("2_0xm2m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(21, -30)
+position = Vector2(0, -58)
 shape = SubResource("CapsuleShape2D_0xm2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(-199, -142)
-texture = ExtResource("1_ig7tw")
-offset = Vector2(0.2, 0.3)
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(4.9999995, -44.000004)
+scale = Vector2(1.8906499, 2.1133823)
+texture = ExtResource("2_h2yge")
+offset = Vector2(0.3, 0.3)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
